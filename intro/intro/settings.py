@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'umj38n*0wgs=+f1-%ou+9_ad5#ly4p6logd#vk$mo+##d*@+=8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True # debug: 개발모드
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*'] # 모든 것
 
 
 # Application definition
@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'pages',
+    'pages', # app 등록
 ]
 
 MIDDLEWARE = [
@@ -106,13 +106,13 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'ko-kr'
 
-TIME_ZONE = 'Asia'
+TIME_ZONE = 'Asia/Seoul'
 
-USE_I18N = True
+USE_I18N = True # INTERNATIONALIZATION
 
-USE_L10N = True
+USE_L10N = True # LOCATIONATION
 
-USE_TZ = True
+USE_TZ = True # TIME_ZONE
 
 
 # Static files (CSS, JavaScript, Images)

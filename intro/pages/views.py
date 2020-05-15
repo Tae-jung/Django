@@ -17,3 +17,12 @@ def lotto(request):
 
 def iam(request):
     return render(request, 'iam.html')
+
+def lunch(request):
+    menus = ['피자', '햄버거', '설렁탕', '마라탕', '삼계탕']
+    menu = random.choice(menus)
+    context = {
+        'menu' : menu,
+        'menus' : menus,
+    }
+    return render(request, 'lunch.html', context)
