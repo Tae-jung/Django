@@ -26,3 +26,9 @@ def lunch(request):
         'menus' : menus,
     }
     return render(request, 'lunch.html', context)
+
+def hi(request, name):
+    context = {
+        'name' : name
+    }
+    return render(request, 'hi.html', context)
