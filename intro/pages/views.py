@@ -32,3 +32,10 @@ def hi(request, name):
         'name' : name
     }
     return render(request, 'hi.html', context)
+
+def add(request, A, B):
+    result = A + B
+    context = {
+        'result' : result
+    }
+    return render(request, 'add.html', context)
