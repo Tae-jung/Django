@@ -41,7 +41,15 @@ def add(request, A, B):
     return render(request, 'add.html', context)
 
 def posts(request, number):
+    content = 'Life is short, you need Python'
+    replies = ['Good', 'Great', 'Me too']
+    no_replies = []
+    user = 'admin'
     context = {
-        'number' : number
+        'number' : number,
+        'content' : content,
+        'replies' : replies,
+        'no_replies' : no_replies,
+        'user' : user
     }
     return render(request, 'posts.html', context)

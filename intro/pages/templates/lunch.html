@@ -1,20 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>lunch</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block css %}
+<style>
+  h1 {
+    color : green;
+  }
+</style>
+{% endblock %}
+
+{% block body %}
   <h1>점심 메뉴 추천</h1>
   <h2>메뉴 리스트</h2>
   <p>
     {% for menu in menus %}
     {{ menu }}
     {% endfor %}
-    <!-- {{menu.0}}: 첫번째 배열 -->
+    <!-- {# {{menu.0}}: 첫번째 배열 #} -->
   </p>
   <hr>
   <h2>{{menu}} 먹자</h2>
-</body>
-</html>
+{% endblock %}

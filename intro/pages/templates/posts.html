@@ -1,11 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>posts</title>
-</head>
-<body>
-  <h1>{{number}}번 글입니다.</h1>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block css %}
+<style>
+  h1 {
+    color : blue;
+  }
+</style>
+{% endblock %}
+{% block body %}
+  <h1>{{ number }}번 글입니다.</h1>
+  <p>{{ content }}</p>
+  <p>{{ content|length }}</p> 
+  <p>{{ content|truncatechars:10 }}</p>
+  <hr>
+  <h2>댓글</h2>
+  <ul>
+  {% for reply in replies %}
+    <li>{{reply}}</li>
+  {% endfor %}
+  </ul>
+  <ul>
+    {% for reply in replies %}
+    <li>댓글{{forloop.counter}}: {{reply}}</li>
+  {% endfor %}
+  </ul>
+  <ul>
+    {% for reply in no_replies %}
+    <li>댓글{{forloop.counter}}: {{reply}}</li>
+    {% empty %}
+    <p>댓글이 없어요...</p>
+  {% endfor %}
+  </ul>
+  {% if user == 'admin' %}
+    <p>수정, 삭제</p>
+  {% else %}
+    <p>관리자 권한이 없습니다.</p>
+  {% endif %}
+{% endblock %}
