@@ -39,3 +39,9 @@ def add(request, A, B):
         'result' : result
     }
     return render(request, 'add.html', context)
+
+def posts(request, number):
+    context = {
+        'number' : number
+    }
+    return render(request, 'posts.html', context)

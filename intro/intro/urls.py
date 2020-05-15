@@ -24,6 +24,7 @@ urlpatterns = [
     path('lotto/', views.lotto),
     path('iam/', views.iam),
     path('lunch/', views.lunch),
-    path('hi/<str:name>', views.hi), # variable routing/name변수로
-    path('add/<int:A>/<int:B>', views.add)
+    path('hi/<str:name>/', views.hi), # variable routing/name변수로
+    path('add/<int:A>/<int:B>/', views.add),
+    path('posts/<int:number>/', views.posts),
 ]
