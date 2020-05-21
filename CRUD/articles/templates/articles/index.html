@@ -8,7 +8,8 @@
 <a href="/articles/new/">글쓰기</a>
 <hr>
 {% for article in articles %}
-<p>{{ article.id }}번 제목: {{ article.title }} 내용: {{article.content}}</p>
+<p>{{ article.id }}번 제목: {{ article.title }}</p>
+<a href="/articles/{{article.id}}/">자세히</a>
 <hr>
 {% endfor %}
 {% endblock %}

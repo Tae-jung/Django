@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}
+상세보기
+{% endblock %}
+{% block body %}
+<h1>{{ article.id }}번 글</h1>
+<p>제목: {{article.title}}</p>
+<p>내용: {{article.content}}</p>
+<p>최초 작성시간: {{article.created_at}}</p>
+<p>최종 수정시간: {{article.updated_at}}</p>
+{% endblock %}
