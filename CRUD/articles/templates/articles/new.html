@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}
+글쓰기
+{% endblock %}
+{% block body %}
+<h1>글쓰기</h1>
+<form action="/articles/create/">
+  제목: <input type="text" name="title">
+  내용: <input type="text" name="content">
+  <input type="submit" value="완료">
+</form>
+{% endblock %}
