@@ -17,7 +17,7 @@ def create(request):
     article.title = request.POST.get('title')
     article.content = request.POST.get('content')
     article.save()
-    return redirect(f'/articles/{article.pk}/')
+    return redirect('articles:detail', article.pk)
 
 def detail(request, article_pk):
     article = Article.objects.get(id=article_pk)
@@ -29,7 +29,7 @@ def detail(request, article_pk):
 def delete(request, article_pk):
     article = Article.objects.get(id=article_pk)
     article.delete()
-    return redirect('/articles/')
+    return redirect('articles:index')
 
 def edit(request, article_pk):
     article = Article.objects.get(pk=article_pk)
@@ -43,4 +43,4 @@ def update(request, article_pk):
     article.title = request.POST.get('title')
     article.content = request.POST.get('content')
     article.save()
-    return redirect(f'/articles/{article.pk}/')
+    return redirect('articles:detail', article.pk)

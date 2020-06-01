@@ -12,6 +12,6 @@
   <h1>게시판</h1>
   {% block body %}
   {% endblock %}
-  <a href="/articles/">목록</a>
+  <a href="{% url 'articles:index' %}">목록</a>
 </body>
 </html>

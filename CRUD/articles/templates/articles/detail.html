@@ -8,6 +8,6 @@
 <p>내용: {{article.content}}</p>
 <p>최초 작성시간: {{article.created_at}}</p>
 <p>최종 수정시간: {{article.updated_at}}</p>
-<a href="/articles/{{article.id}}/delete/">삭제</a>
-<a href="/articles/{{article.id}}/edit/">수정</a>
+<a href="{% url 'articles:delete' article.pk %}">삭제</a>
+<a href="{% url 'articles:edit' article.pk %}">수정</a>
 {% endblock %}
