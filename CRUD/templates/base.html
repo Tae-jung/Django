@@ -1,15 +1,21 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'stylesheets/style.css' %}">
   <title>
     {% block title %}
     {% endblock %}
   </title>
+  {% block css %}
+  {% endblock %}
 </head>
 <body>
   <h1>게시판</h1>
+  <!-- Image 삽입 -->
+  <img src="{% static 'images/PALISADE.jpg' %}" alt="펠리세이드">
   {% block body %}
   {% endblock %}
   <a href="{% url 'articles:index' %}">목록</a>

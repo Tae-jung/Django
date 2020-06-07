@@ -1,4 +1,8 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'stylesheets/form.css' %}">
+{% endblock %}
 {% block title %}
 글쓰기
 {% endblock %}
@@ -7,7 +11,7 @@
 <form action="{% url 'articles:create' %}" method="POST">
   {% csrf_token %}
   제목: <input type="text" name="title">
-  내용: <input type="text" name="content">
+  내용: <textarea name="content" id="content"></textarea>
   <input type="submit" value="완료">
 </form>
 {% endblock %}
