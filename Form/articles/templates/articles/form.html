@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load bootstrap4 %}
 {% block body %}
   <!-- 
     분기의 기준은 url_name이다.
@@ -10,9 +10,36 @@
   {% else %}
     <h2>수정</h2>
   {% endif %}
+
+  <!-- bootstrap 활용 -->
+  <form action="" method="POST">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <!-- input type:submit -->
+    <button class="btn btn-primary">제출</button>
+  </form>
+  <hr>
+
+  <!-- 그냥 활용 -->
   <form action="" method="POST">
     {% csrf_token %}
     {{ form.as_p }}
+    <input type="submit" value="작성">
+  </form>
+  <hr>
+
+  <!-- loop 활용 -->
+  <form action="" method="POST">
+    {% csrf_token %}
+      {% for field in form %}
+        <div class="fieldWrapper">
+          {{ field.errors }}
+          {{ field.label_tag }}<br>{{ field }}
+            {% if field.help_text %}
+              <p class="help">{{ field.help_text|safe }}</p>
+            {% endif %}
+        </div>
+      {% endfor %}
     <input type="submit" value="작성">
   </form>
 {% endblock %}
