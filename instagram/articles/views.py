@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Article
+from .forms import ArticleForm
+from django.contrib import messages
 # Create your views here.
 
 def index(request):
@@ -8,3 +10,18 @@ def index(request):
         'articles': articles
     }
     return render(request, 'articles/index.html', context)
+
+def create(request):
+    if request.method == 'POST':
+        form = ArticleForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, '글 작성이 완료되었습니다.')
+            return redirect('articles:index')
+        messages.warning(request, '폼을 다시 확인 후 제출해주세요.')
+    else:
+        form = ArticleForm()
+    context = {
+        'form' : form
+    }
+    return render(request,'articles/forms.html', context)
